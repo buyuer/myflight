@@ -9,12 +9,21 @@ extern "C" void StartTaskSensor(void *argument)
 {
     sensor.init();
     
+    f32 speed = 0.0f;
+    f32 step = 0.001f;
+    
     while(true){
         
-        motor1.turn(0.00f);
-        motor2.turn(0.00f);
-        motor3.turn(0.00f);
-        motor4.turn(0.00f);
+        motor1.turn(speed);
+        motor2.turn(speed);
+        motor3.turn(speed);
+        motor4.turn(speed);
+        
+        //speed += step;
+        
+        if(speed > 0.3f || speed <=0.00001f){
+            step = -step;
+        }
         
         sensor.update();
         

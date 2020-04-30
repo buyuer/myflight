@@ -13,8 +13,9 @@ static element commands[] = {
     {MPU_PWR_MGMT1_REG,     0x00u},     //唤醒
     {MPU_GYRO_CFG_REG,      0x18u},     //设置陀螺仪满量程
     {MPU_ACCEL_CFG_REG,     0x00u},     //设置加速度计满量程
-    {MPU_SAMPLE_RATE_REG,   0x18u},     //设置采样率
-    {MPU_CFG_REG,           0x05u},     //设置低通滤波器
+    {MPU_SAMPLE_RATE_REG,   0x00u},     //设置采样率1000hz
+    {MPU_CFG_REG,           0x05u},     //设置陀螺仪低通滤波器
+    {MPU_ACCEL_CFG_REG2,    0x03u},     //设置加速度计低通滤波器
     {MPU_INT_EN_REG,        0x00u},     //关闭所有中断
     {MPU_FIFO_EN_REG,       0x00u},     //关闭FIFO
     {MPU_PWR_MGMT1_REG,     0x01u},     //选择X轴陀螺PLL作为时钟源

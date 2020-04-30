@@ -11,6 +11,7 @@
 #define MPU_CFG_REG				0X1A	//配置寄存器
 #define MPU_GYRO_CFG_REG		0X1B	//陀螺仪配置寄存器
 #define MPU_ACCEL_CFG_REG		0X1C	//加速度计配置寄存器
+#define MPU_ACCEL_CFG_REG2		0X1D	//加速度计配置寄存器
 #define MPU_MOTION_DET_REG		0X1F	//运动检测阀值设置寄存器
 #define MPU_FIFO_EN_REG			0X23	//FIFO使能寄存器
 #define MPU_I2CMST_CTRL_REG		0X24	//IIC主机控制寄存器
