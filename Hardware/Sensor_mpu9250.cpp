@@ -1,4 +1,4 @@
-#include "Sensor.hpp"
+#include "Sensor_mpu9250.hpp"
 
 #include "mpu9250.h"
 

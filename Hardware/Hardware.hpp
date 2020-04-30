@@ -1,5 +1,5 @@
 #pragma once
 
-#include "Sensor.hpp"
-#include "Motor.hpp"
-#include "LED.hpp"
+#include "Sensor_mpu9250.hpp"
+#include "Motor_PWM.hpp"
+#include "LED_IO.hpp"

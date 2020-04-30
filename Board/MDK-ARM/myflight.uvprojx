@@ -683,39 +683,39 @@
               <FilePath>..\..\Hardware\Hardware.hpp</FilePath>
             </File>
             <File>
-              <FileName>LED.cpp</FileName>
+              <FileName>LED_IO.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\..\Hardware\LED.cpp</FilePath>
+              <FilePath>..\..\Hardware\LED_IO.cpp</FilePath>
             </File>
             <File>
-              <FileName>LED.hpp</FileName>
+              <FileName>LED_IO.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\..\Hardware\LED.hpp</FilePath>
+              <FilePath>..\..\Hardware\LED_IO.hpp</FilePath>
             </File>
             <File>
-              <FileName>Motor.cpp</FileName>
+              <FileName>Motor_PWM.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>..\..\Hardware\Motor.cpp</FilePath>
+              <FilePath>..\..\Hardware\Motor_PWM.cpp</FilePath>
             </File>
             <File>
-              <FileName>Motor.hpp</FileName>
+              <FileName>Motor_PWM.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\..\Hardware\Motor.hpp</FilePath>
-            </File>
-            <File>
-              <FileName>Sensor.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>..\..\Hardware\Sensor.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Sensor.hpp</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Hardware\Sensor.hpp</FilePath>
+              <FilePath>..\..\Hardware\Motor_PWM.hpp</FilePath>
             </File>
             <File>
               <FileName>mpu9250.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\Hardware\mpu9250.h</FilePath>
+            </File>
+            <File>
+              <FileName>Sensor_mpu9250.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\..\Hardware\Sensor_mpu9250.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Sensor_mpu9250.hpp</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\Hardware\Sensor_mpu9250.hpp</FilePath>
             </File>
           </Files>
         </Group>
