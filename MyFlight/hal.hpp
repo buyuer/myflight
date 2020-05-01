@@ -1,6 +1,6 @@
 #pragma once
 
-#include "base.h"
+#include "base.hpp"
 
 namespace mf
 {
@@ -8,11 +8,11 @@ namespace mf
         
     public:
         
-        s32 yaw, roll, pitch;
+        f32 yaw, roll, pitch;
         
         virtual void init() = 0;
     
-        virtual void update() = 0;
+        virtual void update(f32 dt_ = 0.0f) = 0;
         
     };
     

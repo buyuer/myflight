@@ -663,9 +663,9 @@
           <GroupName>Common</GroupName>
           <Files>
             <File>
-              <FileName>base.h</FileName>
+              <FileName>base.hpp</FileName>
               <FileType>5</FileType>
-              <FilePath>..\..\Common\base.h</FilePath>
+              <FilePath>..\..\Common\base.hpp</FilePath>
             </File>
           </Files>
         </Group>

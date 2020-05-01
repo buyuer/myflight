@@ -37,18 +37,24 @@ void mf::Sensor_mpu9250::init(){
 }
 
 
-void mf::Sensor_mpu9250::update(){
+void mf::Sensor_mpu9250::update(f32 dt_){
     u8 buff[6];
+    s16 org_ax, org_ay, org_az;
+    s16 org_gx, org_gy, org_gz;
     HAL_I2C_Mem_Read(hi2c,addr,MPU_ACCEL_XOUTH_REG,I2C_MEMADD_SIZE_8BIT,buff,6,0xFFFF);
-    this->ax = (short)buff[0] << 8 | buff[1];
-    this->ay = (short)buff[2] << 8 | buff[3];
-    this->az = (short)buff[4] << 8 | buff[5];
+    this->org_ax = (s16)buff[0] << 8 | buff[1];
+    this->org_ay = (s16)buff[2] << 8 | buff[3];
+    this->org_az = (s16)buff[4] << 8 | buff[5];
     HAL_I2C_Mem_Read(hi2c,addr,MPU_GYRO_XOUTH_REG,I2C_MEMADD_SIZE_8BIT,buff,6,0xFFFF);
-    this->gx = (short)buff[0] << 8 | buff[1];
-    this->gy = (short)buff[2] << 8 | buff[3];
-    this->gz = (short)buff[4] << 8 | buff[5];
+    this->org_gx = (s16)buff[0] << 8 | buff[1];
+    this->org_gy = (s16)buff[2] << 8 | buff[3];
+    this->org_gz = (s16)buff[4] << 8 | buff[5];
     
-    this->yaw = gx;
-    this->roll = gy;
-    this->pitch = gz;
+    this->gx = (this->org_gx / MPU_LSB_2000) / 180.0f * MYPI;
+    this->gy = (this->org_gy / MPU_LSB_2000) / 180.0f * MYPI;
+    this->gz = (this->org_gz / MPU_LSB_2000) / 180.0f * MYPI;
+    
+    this->yaw   += this->gx * dt_;
+    this->roll  += this->gy * dt_;
+    this->pitch += this->gz * dt_;
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#define MYPI        3.141592653f
+
 using u8  = unsigned char;
 using s8  = char;
 using u16 = unsigned short;

@@ -12,14 +12,17 @@ namespace mf
         
     public:
         
-        s16 ax, ay, az;
-        s16 gx, gy, gz;
+        s16 org_ax, org_ay, org_az;
+        s16 org_gx, org_gy, org_gz;
+        
+        f32 ax, ay, az;
+        f32 gx, gy, gz;
     
         explicit Sensor_mpu9250(I2C_HandleTypeDef* hi2c_, u16 addr_);
         
         void init() override;
     
-        void update() override;
+        void update(f32 dt_ = 0.0f) override;
         
     };
 }

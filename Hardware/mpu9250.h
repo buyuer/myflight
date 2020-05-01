@@ -70,3 +70,6 @@
 #define MPU_FIFO_CNTL_REG		0X73	//FIFO计数寄存器低八位
 #define MPU_FIFO_RW_REG			0X74	//FIFO读写寄存器
 #define MPU_DEVICE_ID_REG		0X75	//器件ID寄存
+
+#define MPU_LSB_2000            16.4f
+#define MPU_

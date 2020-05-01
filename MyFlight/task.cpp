@@ -25,7 +25,7 @@ extern "C" void StartTaskSensor(void *argument)
             step = -step;
         }
         
-        sensor.update();
+        sensor.update(0.002f);
         
         led1.reversal();
         led2.reversal();
@@ -33,7 +33,7 @@ extern "C" void StartTaskSensor(void *argument)
         led4.reversal();
         led5.reversal();
         
-        osDelay(100);
+        osDelay(2);
     }
 }
 
@@ -45,7 +45,7 @@ extern "C" void StartTaskDebug(void *argument)
     while(true){
         //std::sprintf(str,"ax:%-5d, ay:%-5d, az:%-5d\r\n",sensor.ax,sensor.ay,sensor.az);
         //CDC_Transmit_FS((u8*)str, std::strlen(str));     
-        std::sprintf(str,"gx:%5d, gy:%5d, gz:%5d,\r\n",sensor.yaw,sensor.roll,sensor.pitch);
+        std::sprintf(str,"gx:%5.2f, gy:%5.2f, gz:%5.2f,\r\n",sensor.yaw,sensor.roll,sensor.pitch);
         CDC_Transmit_FS((u8*)str, std::strlen(str));
         
         
