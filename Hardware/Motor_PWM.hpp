@@ -17,6 +17,10 @@ namespace mf
         
         void init() override;
             
+        void enabled() override;
+            
+        void disabled() override;
+            
         void turn(f32) const override;
 
     };

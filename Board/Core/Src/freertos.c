@@ -55,18 +55,32 @@ const osThreadAttr_t defaultTask_attributes = {
   .priority = (osPriority_t) osPriorityLow,
   .stack_size = 128 * 4
 };
-/* Definitions for TaskSensor */
-osThreadId_t TaskSensorHandle;
-const osThreadAttr_t TaskSensor_attributes = {
-  .name = "TaskSensor",
+/* Definitions for TaskSensorMotor */
+osThreadId_t TaskSensorMotorHandle;
+const osThreadAttr_t TaskSensorMotor_attributes = {
+  .name = "TaskSensorMotor",
   .priority = (osPriority_t) osPriorityHigh,
-  .stack_size = 512 * 4
+  .stack_size = 1024 * 4
 };
 /* Definitions for TaskDebug */
 osThreadId_t TaskDebugHandle;
 const osThreadAttr_t TaskDebug_attributes = {
   .name = "TaskDebug",
   .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 512 * 4
+};
+/* Definitions for TaskLED */
+osThreadId_t TaskLEDHandle;
+const osThreadAttr_t TaskLED_attributes = {
+  .name = "TaskLED",
+  .priority = (osPriority_t) osPriorityLow,
+  .stack_size = 512 * 4
+};
+/* Definitions for TaskMessage */
+osThreadId_t TaskMessageHandle;
+const osThreadAttr_t TaskMessage_attributes = {
+  .name = "TaskMessage",
+  .priority = (osPriority_t) osPriorityRealtime,
   .stack_size = 512 * 4
 };
 
@@ -76,8 +90,10 @@ const osThreadAttr_t TaskDebug_attributes = {
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
-void StartTaskSensor(void *argument);
+void StartTaskSensorMotor(void *argument);
 void StartTaskDebug(void *argument);
+void StartTaskLED(void *argument);
+void StartTaskMessage(void *argument);
 
 extern void MX_USB_DEVICE_Init(void);
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
@@ -112,11 +128,17 @@ void MX_FREERTOS_Init(void) {
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
-  /* creation of TaskSensor */
-  TaskSensorHandle = osThreadNew(StartTaskSensor, NULL, &TaskSensor_attributes);
+  /* creation of TaskSensorMotor */
+  TaskSensorMotorHandle = osThreadNew(StartTaskSensorMotor, NULL, &TaskSensorMotor_attributes);
 
   /* creation of TaskDebug */
   TaskDebugHandle = osThreadNew(StartTaskDebug, NULL, &TaskDebug_attributes);
+
+  /* creation of TaskLED */
+  TaskLEDHandle = osThreadNew(StartTaskLED, NULL, &TaskLED_attributes);
+
+  /* creation of TaskMessage */
+  TaskMessageHandle = osThreadNew(StartTaskMessage, NULL, &TaskMessage_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -145,22 +167,22 @@ __weak void StartDefaultTask(void *argument)
   /* USER CODE END StartDefaultTask */
 }
 
-/* USER CODE BEGIN Header_StartTaskSensor */
+/* USER CODE BEGIN Header_StartTaskSensorMotor */
 /**
-* @brief Function implementing the TaskSensor thread.
+* @brief Function implementing the TaskSensorMotor thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartTaskSensor */
-__weak void StartTaskSensor(void *argument)
+/* USER CODE END Header_StartTaskSensorMotor */
+__weak void StartTaskSensorMotor(void *argument)
 {
-  /* USER CODE BEGIN StartTaskSensor */
+  /* USER CODE BEGIN StartTaskSensorMotor */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END StartTaskSensor */
+  /* USER CODE END StartTaskSensorMotor */
 }
 
 /* USER CODE BEGIN Header_StartTaskDebug */
@@ -179,6 +201,42 @@ __weak void StartTaskDebug(void *argument)
     osDelay(1);
   }
   /* USER CODE END StartTaskDebug */
+}
+
+/* USER CODE BEGIN Header_StartTaskLED */
+/**
+* @brief Function implementing the TaskLED thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTaskLED */
+__weak void StartTaskLED(void *argument)
+{
+  /* USER CODE BEGIN StartTaskLED */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartTaskLED */
+}
+
+/* USER CODE BEGIN Header_StartTaskMessage */
+/**
+* @brief Function implementing the TaskMessage thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartTaskMessage */
+__weak void StartTaskMessage(void *argument)
+{
+  /* USER CODE BEGIN StartTaskMessage */
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(1);
+  }
+  /* USER CODE END StartTaskMessage */
 }
 
 /* Private application code --------------------------------------------------*/

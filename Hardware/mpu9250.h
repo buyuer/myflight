@@ -72,4 +72,4 @@
 #define MPU_DEVICE_ID_REG		0X75	//器件ID寄存
 
 #define MPU_LSB_2000            16.4f
-#define MPU_
+#define MPU_ACC_X_COM           16384.0f

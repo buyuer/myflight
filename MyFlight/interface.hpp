@@ -6,4 +6,4 @@
 
 #include "usbd_cdc_if.h"
 
-#include "cmsis_os.h"
+#include "cmsis_os2.h"

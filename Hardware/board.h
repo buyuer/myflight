@@ -6,3 +6,7 @@
 #include "gpio.h"
 #include "i2c.h"
 #include "tim.h"
+#include "usart.h"
+#include "usbd_cdc_if.h"
+
+#include "arm_math.h"
